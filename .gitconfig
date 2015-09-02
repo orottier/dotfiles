@@ -1,0 +1,9 @@
+# MODIFY!
+[user]
+	email = 
+	name = Otto
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesfile = /users/otto/.gitignore
