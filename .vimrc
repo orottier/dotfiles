@@ -22,6 +22,7 @@ Plugin 'sickill/vim-pasta'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'alvan/vim-php-manual'
+Plugin 'argtextobj.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -163,3 +164,6 @@ set clipboard=unnamed
 "
 " ESC is so far away
 inoremap jj <ESC>
+
+" argtextobj
+let g:argumentobject_force_toplevel = 1
