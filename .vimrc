@@ -21,6 +21,7 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'sickill/vim-pasta'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'alvan/vim-php-manual'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
