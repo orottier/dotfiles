@@ -71,6 +71,7 @@ set shiftwidth=4        " spaces for autoindents
 
 set fileformat=unix     " file mode is unix
 "set fileformats=unix,dos    " only detect unix file format, displays that ^M with dos files
+set modeline
 
 " system settings
 set lazyredraw          " no redraws in macros
@@ -167,3 +168,9 @@ inoremap jj <ESC>
 
 " argtextobj
 let g:argumentobject_force_toplevel = 1
+
+" CYGWIN cursor fix
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
