@@ -122,8 +122,9 @@ noremap <Right> <NOP>
 set autoread
 "autocmd BufWritePost * !python ~/commands/filewrite.py <afile>:p
 
-au BufRead,BufNewFile *.twig setfiletype html
-au BufRead,BufNewFile blade.php setfiletype html
+au BufRead,BufNewFile *.twig set filetype=html
+au BufRead,BufNewFile *.blade.php set filetype=html
+au BufRead,BufNewFile /Library/WebServer/* set expandtab
 
 " Unite stuff
 nnoremap <Leader><Leader> :<C-u>Unite -start-insert file_rec/async<cr>
