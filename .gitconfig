@@ -5,3 +5,13 @@
 # poor man's stash
 	wrapup = !git add -A && git commit -m WIP
 	unwrap = reset HEAD^1
+
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+
+# spelling
+	stauts = status
+	stats = status
+	dif = diff
