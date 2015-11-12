@@ -1,9 +1,7 @@
-# MODIFY!
-[user]
-	email = 
-	name = Otto
 [push]
 	default = simple
-[core]
-	editor = vim
-	excludesfile = /users/otto/.gitignore
+
+[alias]
+# poor man's stash
+	wrapup = !git add -A && git commit -m WIP
+	unwrap = reset HEAD^1

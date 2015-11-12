@@ -11,3 +11,9 @@ or
 ```
 cat "source ~/dotfiles/.bashrc" >> ~/.bashrc"
 ```
+
+git: add to .gitconfig
+```
+[include]
+    path = ~/dotfiles/.gitconfig
+```
