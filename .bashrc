@@ -110,21 +110,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f ~/dotfiles/shell_alias]; then
+	. ~/dotfiles/shell_alias
+fi
+
 
 export PATH=$PATH:~/.composer/vendor/bin
 
-alias mysqlstart='sudo /usr/local/mysql/support-files/mysql.server start'
-
-# create a temp commit to get a clean working dir (I hate git stash)
-alias wrapup='git add -A && git commit -a -m "work in progress"'
-# unwrap the temporary commit
-alias unwrap='git reset HEAD^1'
-# continue working on the dirty files in the repo
-alias cont='vim -p $(git diff --name-only) $(git ls-files --others --exclude-standard)'
-# edit the files that were touched in the last commit
-alias again='vim -p $(git show --pretty="format:" --name-only)'
-
-alias higrep='history | grep'
 function grepedit {
 	vim -p $(grep -rl $1 $2)
 }
