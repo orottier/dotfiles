@@ -215,6 +215,23 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" airline
+function! AirlineInit()
+	let g:airline_section_b = airline#section#create_left(['branch'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
+
+autocmd User fugitive 
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> <leader>p :edit %:h<CR> |
+  \ endif
+
+nnoremap [q :cprev
+nnoremap ]q :cnext
+nnoremap [Q :cfirst
+nnoremap ]Q :clast
+
 " use system clipboard
 set clipboard=unnamed
 "
