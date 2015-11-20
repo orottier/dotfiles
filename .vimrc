@@ -47,9 +47,8 @@ nnoremap <leader>ev :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " tab navigation
-nnoremap <S-Left> :tabprevious<CR>
-nnoremap <S-Right> :tabnext<CR>
-nnoremap <C-t> :tabnew<CR>
+nnoremap <S-Left> :bprevious<CR>
+nnoremap <S-Right> :bnext<CR>
 
 " display settings
 " set nowrap              " dont wrap lines
@@ -79,7 +78,7 @@ set bs=indent,eol,start " Allow backspacing over everything in insert mode
 
 set tabstop=4           " number of spaces a tab counts for
 set shiftwidth=4        " spaces for autoindents
-"set expandtab           " turn a tabs into spaces
+set expandtab           " turn a tabs into spaces
 
 set splitright          " open vertical splits to the right
 set splitbelow          " open splits to the bottom
@@ -170,7 +169,7 @@ au FocusGained,BufEnter * :silent! !
 
 autocmd BufRead,BufNewFile *.twig set filetype=html
 autocmd BufRead,BufNewFile *.blade.php set filetype=html
-autocmd BufRead,BufNewFile /Library/WebServer/* setlocal expandtab
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " Commenting blocks of code.
 autocmd FileType c,javascript,php let b:comment_leader = '// '
@@ -181,9 +180,10 @@ noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'
 noremap <silent> <leader>x :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " Unite stuff
-nnoremap <Leader><Leader> :<C-u>Unite -start-insert file_rec/async<cr>
+nnoremap <Leader>f :<C-u>Unite -start-insert file_rec/async<cr>
+nnoremap <Leader><Leader> :Unite -quick-match buffer<cr>
 nnoremap <Leader>r <Plug>(unite_restart)
-let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
+let g:unite_source_rec_async_command = ['ag', '--nocolor', '--nogroup', '--hidden', '-g', '']
 
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
