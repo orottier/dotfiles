@@ -46,10 +46,6 @@ let maplocalleader = "\\"
 nnoremap <leader>ev :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" tab navigation
-nnoremap <S-Left> :bprevious<CR>
-nnoremap <S-Right> :bnext<CR>
-
 " display settings
 " set nowrap              " dont wrap lines
 set scrolloff=2         " 2 lines above/below cursor when scrolling
@@ -145,11 +141,15 @@ nnoremap <Leader>/ :nohlsearch<CR>
 nnoremap <Leader>e :lnext<CR>
 nnoremap <Leader>E :lprev<CR>
 
+
+" tab navigation
+nnoremap <S-Left> :tabprevious<CR>
+nnoremap <S-Right> :tabnext<CR>
 " use hjkl fool
 noremap <Up> <NOP>
 noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+nnoremap <Left> :bprevious<CR>
+nnoremap <Right> :bnext<CR>
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
@@ -180,8 +180,9 @@ noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'
 noremap <silent> <leader>x :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " Unite stuff
+nnoremap <Leader><Leader> :<C-u>Unite -start-insert buffer file_rec/async<cr>
 nnoremap <Leader>f :<C-u>Unite -start-insert file_rec/async<cr>
-nnoremap <Leader><Leader> :Unite -quick-match buffer<cr>
+nnoremap <Leader>b :Unite -start-insert buffer<cr>
 nnoremap <Leader>r <Plug>(unite_restart)
 let g:unite_source_rec_async_command = ['ag', '--nocolor', '--nogroup', '--hidden', '-g', '']
 
