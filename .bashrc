@@ -110,7 +110,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -f ~/dotfiles/shell_alias]; then
+if [ -f ~/dotfiles/shell_alias ]; then
 	. ~/dotfiles/shell_alias
 fi
 

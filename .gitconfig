@@ -3,7 +3,7 @@
 
 [alias]
 # poor man's stash
-	wrapup = !git add -A && git commit -m WIP
+	wrapup = !git add -A && git commit -m WIP --no-verify
 	unwrap = reset HEAD^1
 
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"

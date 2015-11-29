@@ -25,6 +25,7 @@ filetype off                  " required
 	Plugin 'scrooloose/syntastic'
 	Plugin 'alvan/vim-php-manual'
 	Plugin 'argtextobj.vim'
+	Plugin 'ton/vim-bufsurf'
 
 	" All of your Plugins must be added before the following line
 	call vundle#end()            " required
@@ -148,8 +149,8 @@ nnoremap <S-Right> :tabnext<CR>
 " use hjkl fool
 noremap <Up> <NOP>
 noremap <Down> <NOP>
-nnoremap <Left> :bprevious<CR>
-nnoremap <Right> :bnext<CR>
+nnoremap <Left> :BufSurfBack<CR>
+nnoremap <Right> :BufSurfForward<CR>
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>

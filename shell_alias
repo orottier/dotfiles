@@ -6,3 +6,4 @@ alias cont='vim -p $(git diff --name-only) $(git ls-files --others --exclude-sta
 alias again='vim -p $(git show --pretty="format:" --name-only)'
 
 alias higrep='history | grep'
+alias taillog='tail -f storage/logs/laravel.log'
