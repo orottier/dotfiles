@@ -24,7 +24,7 @@ filetype off                  " required
 	Plugin 'chriskempson/base16-vim'
 	Plugin 'scrooloose/syntastic'
 	Plugin 'alvan/vim-php-manual'
-	Plugin 'argtextobj.vim'
+	Plugin 'wellle/targets.vim'
 	Plugin 'ton/vim-bufsurf'
 
 	" All of your Plugins must be added before the following line
@@ -245,3 +245,6 @@ let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
+
+" oops forgot sudo
+cmap w!! %!sudo tee > /dev/null %
