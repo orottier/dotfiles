@@ -3,32 +3,33 @@ filetype off                  " required
 
 " === Plugins === {{{
 
-	" set the runtime path to include Vundle and initialize
-	set rtp+=~/.vim/bundle/Vundle.vim
-	call vundle#begin()
-	" alternatively, pass a path where Vundle should install plugins
-	"call vundle#begin('~/some/path/here')
+    " set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    " alternatively, pass a path where Vundle should install plugins
+    "call vundle#begin('~/some/path/here')
 
-	" let Vundle manage Vundle, required
-	Plugin 'gmarik/Vundle.vim'
-	Plugin 'Shougo/vimproc'
-	Plugin 'Shougo/unite.vim'
-	Plugin 'Valloric/YouCompleteMe'
-	Plugin 'shawncplus/phpcomplete.vim'
-	Plugin 'bronson/vim-trailing-whitespace'
-	Plugin 'bling/vim-airline'
-	Plugin 'airblade/vim-gitgutter'
-	Plugin 'tpope/vim-fugitive'
-	Plugin 'altercation/vim-colors-solarized.git'
-	Plugin 'sickill/vim-pasta'
-	Plugin 'chriskempson/base16-vim'
-	Plugin 'scrooloose/syntastic'
-	Plugin 'alvan/vim-php-manual'
-	Plugin 'wellle/targets.vim'
-	Plugin 'ton/vim-bufsurf'
+    " let Vundle manage Vundle, required
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'Shougo/vimproc'
+    Plugin 'Shougo/unite.vim'
+    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'shawncplus/phpcomplete.vim'
+    Plugin 'bronson/vim-trailing-whitespace'
+    Plugin 'bling/vim-airline'
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'altercation/vim-colors-solarized.git'
+    Plugin 'sickill/vim-pasta'
+    Plugin 'chriskempson/base16-vim'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'alvan/vim-php-manual'
+    Plugin 'wellle/targets.vim'
+    Plugin 'ton/vim-bufsurf'
+    Plugin 'jwalton512/vim-blade'
 
-	" All of your Plugins must be added before the following line
-	call vundle#end()            " required
+    " All of your Plugins must be added before the following line
+    call vundle#end()            " required
 " }}}
 
 " reset to vim-defaults
@@ -169,7 +170,6 @@ au FocusGained,BufEnter * :silent! !
 "autocmd BufWritePost * !python ~/commands/filewrite.py <afile>:p
 
 autocmd BufRead,BufNewFile *.twig set filetype=html
-autocmd BufRead,BufNewFile *.blade.php set filetype=html
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " Commenting blocks of code.
@@ -229,10 +229,10 @@ autocmd User fugitive
   \   nnoremap <buffer> <leader>p :edit %:h<CR> |
   \ endif
 
-nnoremap [q :cprev
-nnoremap ]q :cnext
-nnoremap [Q :cfirst
-nnoremap ]Q :clast
+nnoremap [q :cprev<cr>
+nnoremap ]q :cnext<cr>
+nnoremap [Q :cfirst<cr>
+nnoremap ]Q :clast<cr>
 
 " use system clipboard
 set clipboard=unnamed
