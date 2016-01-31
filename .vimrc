@@ -27,6 +27,7 @@ filetype off                  " required
     Plugin 'wellle/targets.vim'
     Plugin 'ton/vim-bufsurf'
     Plugin 'jwalton512/vim-blade'
+    Plugin 'tpope/vim-commentary'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -73,6 +74,10 @@ set smartindent         " smart auto indenting
 set smarttab            " smart tab handling for indenting
 set magic               " change the way backslashes are used in search patterns
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
+
+" Use the tilde as an operator with motions, rather than just swapping the
+" case of the character under the cursor
+ set tildeop
 
 set tabstop=4           " number of spaces a tab counts for
 set shiftwidth=4        " spaces for autoindents
@@ -172,14 +177,6 @@ au FocusGained,BufEnter * :silent! !
 autocmd BufRead,BufNewFile *.twig set filetype=html
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
-" Commenting blocks of code.
-autocmd FileType c,javascript,php let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType tex              let b:comment_leader = '% '
-autocmd FileType vim              let b:comment_leader = '" '
-noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <leader>x :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
 " Unite stuff
 nnoremap <Leader><Leader> :<C-u>Unite -start-insert buffer file_rec/async<cr>
 nnoremap <Leader>f :<C-u>Unite -start-insert file_rec/async<cr>
@@ -234,6 +231,11 @@ nnoremap ]q :cnext<cr>
 nnoremap [Q :cfirst<cr>
 nnoremap ]Q :clast<cr>
 
+" When wrapping, j and k should move by screen row, and not to the same
+" column number in the previous logical line
+nnoremap j gj
+nnoremap k gk
+
 " use system clipboard
 set clipboard=unnamed
 "
@@ -248,3 +250,10 @@ let &t_te.="\e[0 q"
 
 " oops forgot sudo
 cmap w!! %!sudo tee > /dev/null %
+
+let g:weather#area = 'amsterdam,nl'
+let g:weather#unit = 'metric'
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
