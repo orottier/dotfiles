@@ -257,3 +257,12 @@ let g:weather#unit = 'metric'
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
+
+autocmd BufLeave *.css,*.less,*scss normal! mY
+autocmd BufLeave *.js               normal! mS
+autocmd BufLeave *.php              normal! mP
+autocmd BufLeave */Jobs/*           normal! mJ
+autocmd BufLeave */Commands/*       normal! mC
+autocmd BufLeave */Controllers/*    normal! mH
+autocmd BufLeave */Models/*         normal! mM
+autocmd BufLeave */Libraries/*      normal! mL
