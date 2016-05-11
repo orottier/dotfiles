@@ -11,6 +11,8 @@
 
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 
+	since-release = !git log --oneline --decorate $(git describe --abbrev=0)..
+
 # spelling
 	stauts = status
 	stats = status
